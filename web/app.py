@@ -129,7 +129,8 @@ def resolve(body: Link, request: Request):
     try:
         result = subprocess.run(engine_args() + ['--dump-single-json', '--skip-download', '--', url], capture_output=True, text=True, timeout=60)
         if result.returncode:
-            raise HTTPException(422, error_message(result.stderr))
+    print("Video lookup failed:", result.stderr[-4000:], flush=True)
+    raise HTTPException(422, error_message(result.stderr))
         info = json.loads(result.stdout)
         if info.get('entries') is not None:
             raise HTTPException(422, 'Paste a single video link rather than a playlist.')
