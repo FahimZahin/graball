@@ -1,3 +1,17 @@
+# Graball — Website version
+
+The new **website** is in [`web/`](web/README.md). Paste a video link, choose a quality, and download through a Python/yt-dlp backend.
+
+```sh
+docker compose up --build
+```
+
+Then open **http://localhost:8000**. See the [web setup and hosting guide](web/README.md).
+
+---
+
+## Original Android project
+
 # graball
 
 Android video and file downloader. Share a link to it, pick what you want, get the file.
